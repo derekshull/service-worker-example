@@ -25,12 +25,12 @@ self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open('v1').then(function(cache) {
       return cache.addAll([
-        '/',
-        '/test.json',
-        '/index.html',
-        '/index.html?homescreen=1',
-        '/?homescreen=1',
-        '/main.min.js'
+        '/service-worker-example/',
+        '/service-worker-example/test.json',
+        '/service-worker-example/index.html',
+        '/service-worker-example/index.html?homescreen=1',
+        '/service-worker-example/?homescreen=1',
+        '/service-worker-example/main.min.js'
       ]).then(function() {
         return self.skipWaiting();
       });
