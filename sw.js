@@ -26,6 +26,7 @@ self.addEventListener('install', function(e) {
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/service-worker-example/',
+        '/service-worker-example/jquery.js',
         '/service-worker-example/test.json',
         '/service-worker-example/index.html',
         '/service-worker-example/index.html?homescreen=1',
