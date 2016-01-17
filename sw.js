@@ -19,7 +19,7 @@
  
 // Version 0.46
 
-importScripts('/cache-polyfill.js');
+importScripts('/service-worker-example/cache-polyfill.js');
 
 self.addEventListener('install', function(e) {
   e.waitUntil(
