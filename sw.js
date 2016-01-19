@@ -1,6 +1,5 @@
 self.addEventListener('install', function(e) {
   e.waitUntil(
-    self.skipWaiting();
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/service-worker-example/',
@@ -12,6 +11,7 @@ self.addEventListener('install', function(e) {
       ]);
     })
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', function(event) {
