@@ -1,22 +1,21 @@
 self.addEventListener('install', function(e) {
   e.waitUntil(
+    self.skipWaiting();
     caches.open('v1').then(function(cache) {
       return cache.addAll([
-        '/',
-        '/test.json',
-        '/index.html',
-        '/index.html?homescreen=1',
-        '/?homescreen=1',
-        '/main.min.js'
-      ]).then(function() {
-        return self.skipWaiting();
-      });
+        '/service-worker-example/',
+        '/service-worker-example/test.json',
+        '/service-worker-example/index.html',
+        '/service-worker-example/index.html?homescreen=1',
+        '/service-worker-example/?homescreen=1',
+        '/service-worker-example/main.min.js'
+      ]);
     })
   );
 });
 
 self.addEventListener('activate', function(event) {
-  event.waitUntil(self.clients.claim());
+  self.clients.claim();
 });
 
 self.addEventListener('fetch', function(event) {
