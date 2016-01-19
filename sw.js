@@ -1,5 +1,6 @@
 self.addEventListener('install', function(e) {
   e.waitUntil(
+    self.skipWaiting();
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/service-worker-example/',
@@ -8,15 +9,13 @@ self.addEventListener('install', function(e) {
         '/service-worker-example/index.html?homescreen=1',
         '/service-worker-example/?homescreen=1',
         '/service-worker-example/main.min.js'
-      ]).then(function() {
-        return self.skipWaiting();
-      });
+      ]);
     })
   );
 });
 
 self.addEventListener('activate', function(event) {
-  event.waitUntil(self.clients.claim());
+  self.clients.claim();
 });
 
 self.addEventListener('fetch', function(event) {
